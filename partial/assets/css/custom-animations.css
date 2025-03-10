@@ -1,0 +1,49 @@
+/* Animación Fade In */
+.fade-in {
+    opacity: 0;
+    animation: fade-in 1.2s ease-in-out both;
+}
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Animación Slide In desde la izquierda */
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slide-in-left 1.2s ease-in-out both;
+}
+@keyframes slide-in-left {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Animación Zoom In */
+.zoom-in {
+    opacity: 0;
+    transform: scale(0.8);
+    animation: zoom-in 1.2s ease-in-out both;
+}
+@keyframes zoom-in {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Animación de entrada */
+@keyframes fade-in {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Animación de giro */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Aplicar las animaciones al logo */
+.preloader-logo {
+    opacity: 0;
+    animation: fade-in 1s zoom-in forwards, spin 2s linear infinite;
+}

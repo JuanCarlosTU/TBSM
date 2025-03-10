@@ -1,0 +1,316 @@
+/* Estilos generales */
+:root {
+    --primary-color: #d41c1c; /* Rojo del logo */
+    --secondary-color: #003366; /* Azul oscuro para contrastes */
+    --accent-color: #ffcccc; /* Rojo claro para fondos suaves */
+    --text-color: #333; /* Color de texto principal */
+    --background-color: #f8f8f8; /* Fondo general */
+    --font-family: 'Arial', sans-serif;
+}
+
+/* Reseteo de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cuerpo del documento */
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.75em;
+}
+
+/* Enlaces */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Botones */
+button, .btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover, .btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Contenedores y tarjetas */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Formularios */
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--secondary-color);
+    color: white;
+}
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: transparent;
+    transition: background 0.3s ease, padding 0.3s ease;
+    z-index: 1000;
+}
+
+.navbar.scrolled {
+    background: var(--secondary-color);
+    padding: 10px 0;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.9));
+}
+
+.logo.drop {
+    filter: drop-shadow(0 3px 5px rgba(255, 255, 255, 0.9));
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+
+/* Contenedor del Hero con video */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+/* Video de fondo */
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Contenido del Hero (texto sobre el video) */
+.hero-content {
+    position: absolute;
+    bottom: 20px; /* Lo mueve hacia la parte inferior */
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+}
+/* HERO CONTENT MÁS PEQUEÑO EN ESCRITORIO */
+@media (min-width: 1024px) {
+    .hero-content {
+        width: 50%; /* Más pequeño en pantallas grandes */
+        bottom: 40px; /* Más cerca del borde inferior */
+        padding: 15px;
+    }
+}
+
+/* OCULTAR VIDEO EN DISPOSITIVOS MÓVILES */
+@media (max-width: 768px) {
+    .video-bg {
+        display: none;
+    }
+
+    /* Ajustar el hero cuando no hay video 
+    .hero {
+        background: url("../img/imagen-fallback.jpg") no-repeat center center/cover; 
+        height: 50vh; */ /* Reducir altura en móviles 
+    }*/
+    
+    /* Hero-content ocupa más espacio en móviles */
+    .hero-content {
+        position: relative;
+        width: 90%;
+        background: rgba(255, 255, 255, 0.5); 
+        padding: 20px;
+    }
+    .hero-content p {
+        font-size: 1.5em;
+        color: rgb(69, 69, 69);
+    }
+}
+/* Ocultar el menú en dispositivos móviles */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+}
+
+/* BOTÓN MENU (solo visible en móviles) */
+.menu-btn {
+    font-size: 24px;
+    background:rgba(18, 56, 95, 0.5);
+    border: none;
+    color: rgb(255, 0, 0);
+    display: none;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        width: 200px;
+        padding: 10px;
+        text-align: right;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+
+/* Estilos generales */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #ffffff; /* Fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+/* Ocultar preloader después de la carga */
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Logo del preloader */
+.preloader-logo {
+    width: 150px;
+}
