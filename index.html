@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Oficial de la Iglesia Tabernaculo Bautista de San Miguel | TBSM</title>
+   <script src="partial/assets/js/script.js"></script>
+   <link rel="stylesheet" href="partial/assets/css/custom-animations.css" />
+    <link rel="stylesheet" href="partial/assets/css/styles.css"/>
+</head>
+<body>
+    
+    <!-- Preloader -->
+<div id="preloader">
+    <img src="partial/assets/img/Logo.png" alt="Logo" class="preloader-logo">
+</div>
+
+   <!--  Navbar -->
+    <div id="navbara"></div>
+
+    
+    <!-- Contenido Principal -->
+    <header class="hero" >
+        <video autoplay muted loop class="video-bg">
+            <source src="partial/assets/media/videos/bannervideo.mp4" type="video/mp4">
+            Tu navegador no soporta videos en HTML5.
+        </video>
+        <div class="hero-content">
+        <h1></h1>
+        <p></p>
+    </div>
+    </header>
+    <script>
+        // Cargar el navbar desde el archivo externo
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbara').innerHTML = data;
+                
+                // Cargar script.js después de insertar el navbar
+                const script = document.createElement('script');
+                script.src = 'partial/assets/js/script.js';
+                document.body.appendChild(script);
+            });
+    </script>S
+    <main>
+        <section class="content">
+            <h2>Sección de contenido</h2>
+            <p>Aquí puedes agregar más contenido...</p>
+        </section>
+        <section class="content animate-on-scroll" data-anim="fade-in">
+            <h2>Sección animada</h2>
+            <p>Este contenido aparecerá con un fade-in cuando hagas scroll.</p>
+        </section>
+        <section class="content animate-on-scroll" data-anim="slide-in-left">
+            <h2>Otra sección</h2>
+            <p>Se deslizará desde la izquierda.</p>
+        </section>
+        
+        <section class="content animate-on-scroll" data-anim="zoom-in">
+            <h2>Sección de zoom</h2>
+            <p>Se hará un zoom al entrar en pantalla.</p>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <div id="footer"></div>
+
+</body>
+</html>
