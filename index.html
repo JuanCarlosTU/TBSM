@@ -4,54 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Oficial de la Iglesia Tabernaculo Bautista de San Miguel | TBSM</title>
-   <script src="partial/assets/js/script.js"></script>
-   <link rel="stylesheet" href="partial/assets/css/custom-animations.css" />
+    <link rel="stylesheet" href="partial/assets/css/custom-animations.css" />
     <link rel="stylesheet" href="partial/assets/css/styles.css"/>
-</head>
+    <script src="partial/assets/js/script.js" defer></script> </head>
 <body>
     
-    <!-- Preloader -->
-<div id="preloader">
-    <img src="partial/assets/img/Logo.png" alt="Logo" class="preloader-logo">
-</div>
+    <div id="preloader">
+        <img src="partial/assets/img/Logo.png" alt="Logo de la Iglesia" class="preloader-logo">
+    </div>
 
-   <!--  Navbar -->
-    <div id="navbara"></div>
-
-    
-    <!-- Contenido Principal -->
-    <header class="hero" >
-        <video autoplay muted loop class="video-bg">
+    <header class="hero">
+        <nav id="navbara"></nav> <video autoplay muted loop class="video-bg">
             <source src="partial/assets/media/videos/bannervideo.mp4" type="video/mp4">
-            Tu navegador no soporta videos en HTML5.
+            <source src="partial/assets/media/videos/bannervideo.webm" type="video/webm"> Tu navegador no soporta videos en HTML5.
         </video>
         <div class="hero-content">
-        <h1></h1>
-        <p></p>
-    </div>
+            <h1>Bienvenido a la Iglesia Tabernáculo Bautista de San Miguel</h1>
+            <p>Un lugar de encuentro con Dios y comunidad.</p>
+        </div>
     </header>
-    <script>
-        // Cargar el navbar desde el archivo externo
-        fetch('navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbara').innerHTML = data;
-                
-                // Cargar script.js después de insertar el navbar
-                const script = document.createElement('script');
-                script.src = 'partial/assets/js/script.js';
-                document.body.appendChild(script);
-            });
-    </script>S
+
     <main>
         <section class="content">
-            <h2>Sección de contenido</h2>
-            <p>Aquí puedes agregar más contenido...</p>
+            <h2>Próximos Eventos</h2>
+            <p>Aquí puedes agregar la lista de eventos próximos...</p>
         </section>
+
+        <section class="content">
+            <h2>Sermones Recientes</h2>
+            <p>Aquí puedes agregar extractos de los sermones más recientes...</p>
+        </section>
+
+        <section class="content">
+            <h2>Ubicación</h2>
+            <iframe src="URL_DEL_MAPA_DE_GOOGLE_MAPS" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
         <section class="content animate-on-scroll" data-anim="fade-in">
             <h2>Sección animada</h2>
             <p>Este contenido aparecerá con un fade-in cuando hagas scroll.</p>
         </section>
+
         <section class="content animate-on-scroll" data-anim="slide-in-left">
             <h2>Otra sección</h2>
             <p>Se deslizará desde la izquierda.</p>
@@ -63,8 +56,16 @@
         </section>
     </main>
     
-    <!-- Footer -->
-    <div id="footer"></div>
+    <footer id="footer"></footer> <script>
+        // Cargar el navbar y footer desde archivos externos
+        Promise.all([
+            fetch('navbar.html').then(response => response.text()),
+            fetch('footer.html').then(response => response.text())
+        ]).then(data => {
+            document.getElementById('navbara').innerHTML = data[0];
+            document.getElementById('footer').innerHTML = data[1];
+        });
+    </script>
 
 </body>
 </html>
